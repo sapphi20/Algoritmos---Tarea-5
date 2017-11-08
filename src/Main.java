@@ -2,7 +2,8 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static String insert2(Hash dic, int value) {
+    //imprime la tabla de hash despues de haber insertado un valor
+    public static String insertAux(Hash dic, int value) {
         try {
             dic.insert(value);
             return dic.toString();
@@ -11,7 +12,8 @@ public class Main {
         }
     }
 
-    public static String delete2(Hash dic, int value) {
+    //imprime la tabla de hash despues de hacer eliminado un valor
+    public static String deleteAux(Hash dic, int value) {
         try {
             dic.delete(value);
             return dic.toString();
@@ -31,13 +33,21 @@ public class Main {
                 for (int i = 2; i < input.length; i++) {
                     int yo = Integer.parseInt(input[i]);
                     if (yo > 0)
-                        System.out.println(insert2(table, yo));
+                        System.out.println(insertAux(table, yo));
                     else
-                        System.out.println(delete2(table, Math.abs(yo)));
+                        System.out.println(deleteAux(table, Math.abs(yo)));
+                }
+            }
+            if (hashTec.equals("2")) {
+                RobinHood table = new RobinHood(m);
+                for (int i = 2; i < input.length; i++) {
+                    int yo = Integer.parseInt(input[i]);
+                    if (yo > 0)
+                        System.out.println(insertAux(table, yo));
+                    else
+                        System.out.println(deleteAux(table, yo));
                 }
             }
         }
-        //if (hashTec.equals("2")) {
-        //hace cosas con Robin Hood
     }
 }
