@@ -4,29 +4,27 @@ public class RobinHood extends Hash {
     }
 
     private void insert(int x, int realx) throws Exception {
-        //crear arreglo con llaves/edades/algo que marque distancia, ya que puede dar la vuelta
         int i = x % m;
         if (values[i].equals("0") || values[i].equals("X")) {
             values[i] = Integer.toString(realx);
         } else if (values[i].equals(Integer.toString(realx))) {
             throw new Exception("ERROR: valor ya existe");
         } else {
-            //debo insertar?
             //-> swap de los valores
             //-> recursion con valor antiguo
             int a = Integer.parseInt(values[i]); //el valor que esta ocupando el casillero
             int b = realx; //el que estoy tratando de insertar
-            int da = distance(a, a % m); //distancia del valor que ya esta en la tabla
-            int db = distance(b, b % m);//distancia del valor que quiero insertar
-            if (da > db) { //TODO: hacer que tire lo que deberia dar
+            int da = distance(a, i); //distancia del valor que ya esta en la tabla
+            int db = distance(b, i);//distancia del valor que quiero insertar
+            if (da > db) {
                 //no intercambiar
-                insert(x+1, realx);
+                insert(x + 1, realx);
             } else {
-                //swap
+                //intercambio valores
                 int t = a;
-                values[i] = ""+b; //a = b
+                values[i] = "" + b; //a = b
                 b = t;
-                insert(b+1 , realx); //insert(b+1,b)
+                insert(i+1, b); //inserto el valor que estaba originalmente en el casillero
             }
         }
 
