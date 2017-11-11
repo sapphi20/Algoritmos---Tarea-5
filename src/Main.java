@@ -32,20 +32,23 @@ public class Main {
                 LinearProbing table = new LinearProbing(m);
                 for (int i = 2; i < input.length; i++) {
                     int yo = Integer.parseInt(input[i]);
-                    if (yo > 0)
+                    if (yo > 0) {
                         System.out.println(insertAux(table, yo));
-                    else
+                    } else {
                         System.out.println(deleteAux(table, Math.abs(yo)));
+                    }
                 }
+
             }
             if (hashTec.equals("2")) {
                 RobinHood table = new RobinHood(m);
                 for (int i = 2; i < input.length; i++) {
                     int yo = Integer.parseInt(input[i]);
-                    if (yo > 0)
+                    if (yo > 0) {
                         System.out.println(insertAux(table, yo));
-                    else
-                        System.out.println(deleteAux(table, yo));
+                    } else {
+                        System.out.println(deleteAux(table, Math.abs(yo)));
+                    }
                 }
             }
         }
