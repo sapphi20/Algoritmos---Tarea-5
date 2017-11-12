@@ -15,8 +15,8 @@ public class Hash {
     }
 
     //verifica si el valor esta en la tabla o no
-    //entrega true si esta
-    private boolean search(int x, int realx) {
+    //entrega true si lo esta
+    public boolean search(int x, int realx) {
         int i = x % m;
         if (values[i].equals(Integer.toString(realx))) {
             return true;
@@ -45,6 +45,4 @@ public class Hash {
         else
             delete(x + 1, realx);
     }
-
-
 }
