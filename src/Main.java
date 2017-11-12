@@ -25,9 +25,12 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         while (sc.hasNextLine()) {
-            String[] input = sc.nextLine().split(" ");
+            String in = sc.nextLine();
+            if (in.isEmpty())
+                break;
+            String[] input = in.split(" ");
             String hashTec = input[0]; //numero de la tecnica de hash a utilizar
-            int m = Integer.parseInt(input[1]); //tamaño de la tabla
+            int m = Integer.parseInt(input[1]); //capacidad de la tabla
             if (hashTec.equals("1")) {
                 LinearProbing table = new LinearProbing(m);
                 for (int i = 2; i < input.length; i++) {
@@ -38,6 +41,7 @@ public class Main {
                         System.out.println(deleteAux(table, Math.abs(yo)));
                     }
                 }
+                System.out.println();
 
             }
             if (hashTec.equals("2")) {
@@ -50,6 +54,7 @@ public class Main {
                         System.out.println(deleteAux(table, Math.abs(yo)));
                     }
                 }
+                System.out.println();
             }
         }
     }
