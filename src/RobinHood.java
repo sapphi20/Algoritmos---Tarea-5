@@ -10,8 +10,6 @@ public class RobinHood extends Hash {
         } else if (values[i].equals(Integer.toString(realx))) {
             throw new Exception("ERROR: valor ya existe");
         } else {
-            //-> swap de los valores
-            //-> recursion con valor antiguo
             int a = Integer.parseInt(values[i]); //el valor que esta ocupando el casillero
             int b = realx; //el que estoy tratando de insertar
             int da = distance(a, i); //distancia del valor que ya esta en la tabla
@@ -24,12 +22,12 @@ public class RobinHood extends Hash {
                 int t = a;
                 values[i] = "" + b; //a = b
                 b = t;
-                insert(i+1, b); //inserto el valor que estaba originalmente en el casillero
+                insert(i + 1, b); //inserto el valor que estaba originalmente en el casillero
             }
         }
-
     }
 
+    /*entrega la distancia a la que esta x de su posicion original */
     private int distance(int x, int pos) {
         return Math.abs(x % m - pos); //pos es la posicion actual
     }
@@ -39,4 +37,5 @@ public class RobinHood extends Hash {
     public void insert(int x) throws Exception {
         insert(x, x);
     }
+
 }
